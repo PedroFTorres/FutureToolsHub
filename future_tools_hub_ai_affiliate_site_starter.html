@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FutureToolsHub — Curated AI Tools & Honest Reviews</title>
+  <meta name="description" content="Discover the best AI tools for creators, entrepreneurs, and small businesses. Curated lists, hands‑on reviews, and simple guides. Affiliate disclosure inside." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  <style>
+    :root{
+      --bg:#0b1020;--card:#121833;--card-2:#151c3d;--txt:#e6e9f5;--muted:#9aa3c7;--brand:#7aa2ff;--accent:#36e1a6;--warn:#ffd36e;
+      --radius:16px;--radius-sm:12px;--shadow:0 8px 24px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;color:var(--txt);background:linear-gradient(180deg,#0a0f20 0%, #0e1633 100%);} 
+    a{color:var(--brand);text-decoration:none}
+    .container{max-width:1120px;margin:0 auto;padding:24px}
+    header{position:sticky;top:0;backdrop-filter:blur(8px);background:rgba(10,15,32,.6);border-bottom:1px solid rgba(255,255,255,.06);z-index:50}
+    nav{display:flex;align-items:center;gap:18px;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700}
+    .logo .dot{width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 16px var(--accent)}
+    .btn{display:inline-block;padding:12px 16px;border-radius:12px;background:var(--brand);color:#0b1020;font-weight:700;box-shadow:var(--shadow)}
+    .btn.ghost{background:transparent;color:var(--txt);border:1px solid rgba(255,255,255,.12)}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:40px 0}
+    .card{background:linear-gradient(180deg, var(--card) 0%, var(--card-2) 100%);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+    .grid{display:grid;gap:18px}
+    .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width:980px){.hero{grid-template-columns:1fr}.grid.cols-3{grid-template-columns:1fr 1fr}.grid.cols-2{grid-template-columns:1fr}}
+    @media (max-width:640px){.grid.cols-3{grid-template-columns:1fr}}
+    h1{font-size:40px;line-height:1.1;margin:0 0 12px}
+    h2{font-size:26px;margin:0 0 12px}
+    h3{font-size:20px;margin:8px 0}
+    p{color:var(--muted);line-height:1.65}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;background:#0b112a;border:1px solid rgba(255,255,255,.08);color:#b9c2e9}
+    .kpi{display:flex;gap:18px;flex-wrap:wrap}
+    .kpi div{background:#0b112a;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px 14px}
+    .tool{display:flex;gap:14px}
+    .tool img{width:40px;height:40px;border-radius:10px}
+    .tool .meta{flex:1}
+    .tool .actions{display:flex;gap:10px;align-items:center}
+    .disclosure{font-size:12px;color:#bfc7e9}
+    .footer{margin-top:40px;padding:24px 0;border-top:1px solid rgba(255,255,255,.08);color:#b7c0e6}
+    .input{background:#0b112a;border:1px solid rgba(255,255,255,.1);padding:12px 14px;border-radius:12px;color:var(--txt);width:100%}
+    form.inline{display:flex;gap:10px;flex-wrap:wrap}
+    .badge{font-weight:700;color:#0b1020;background:var(--warn);display:inline-block;padding:4px 8px;border-radius:8px;margin-left:8px}
+    .pill{background:#0b112a;border:1px solid rgba(255,255,255,.08);padding:6px 10px;border-radius:10px;font-size:12px}
+    .post h2{margin-top:18px}
+    .toc a{display:block;padding:6px 0;color:#c8d1f6}
+    .cta{display:flex;gap:10px;margin-top:8px}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"WebSite","name":"FutureToolsHub","url":"https://futuretoolshub.example","potentialAction":{"@type":"SearchAction","target":"https://futuretoolshub.example/?q={search_term}","query-input":"required name=search_term"}
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo"><span class="dot"></span><span>FutureToolsHub</span></div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <a class="btn ghost" href="#categories">Categories</a>
+          <a class="btn ghost" href="#top">Top Tools</a>
+          <a class="btn" href="#newsletter">Get Weekly Picks</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <h1>Discover AI Tools that <span style="color:var(--accent)">Grow Revenue</span> — Not Busywork</h1>
+        <p>We test and curate AI software for creators and small businesses. Transparent reviews, simple tutorials, and honest affiliate disclosure. Build compounding, <strong>recurring</strong> revenue with the right stack.</p>
+        <div class="kpi">
+          <div><strong>5</strong><br/><span class="muted">Core Categories</span></div>
+          <div><strong>+30%</strong><br/><span class="muted">Avg. recurring commissions*</span></div>
+          <div><strong>Weekly</strong><br/><span class="muted">Tool Launch Digest</span></div>
+        </div>
+        <div class="cta">
+          <a class="btn" href="#top">See Best Tools</a>
+          <a class="btn ghost" href="#disclosure">Affiliate Disclosure</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Quick Start: Recommended Stack <span class="badge">Editor’s Pick</span></h3>
+        <div class="grid cols-2" style="margin-top:10px">
+          <div class="tool">
+            <img alt="Systeme" src="https://api.iconify.design/mdi:tools.svg?color=white"/>
+            <div class="meta">
+              <strong>Systeme.io</strong>
+              <p class="muted">Funnels, email & automation in one. Great for beginners.</p>
+              <div class="actions">
+                <a class="btn" href="https://your-systeme-aff-link.example" target="_blank" rel="nofollow">Try free</a>
+                <a class="pill" href="#review-systeme">Read review</a>
+              </div>
+            </div>
+          </div>
+          <div class="tool">
+            <img alt="Writesonic" src="https://api.iconify.design/mdi:pencil.svg?color=white"/>
+            <div class="meta">
+              <strong>Writesonic</strong>
+              <p class="muted">AI writing + SEO. Fast drafts, briefs, and blog posts.</p>
+              <div class="actions">
+                <a class="btn" href="https://your-writesonic-aff-link.example" target="_blank" rel="nofollow">Start now</a>
+                <a class="pill" href="#list-writing">Top writing tools</a>
+              </div>
+            </div>
+          </div>
+          <div class="tool">
+            <img alt="Pictory" src="https://api.iconify.design/mdi:video.svg?color=white"/>
+            <div class="meta">
+              <strong>Pictory</strong>
+              <p class="muted">Turn scripts into videos with voiceover & captions.</p>
+              <div class="actions">
+                <a class="btn" href="https://your-pictory-aff-link.example" target="_blank" rel="nofollow">Create video</a>
+                <a class="pill" href="#list-video">Top video tools</a>
+              </div>
+            </div>
+          </div>
+          <div class="tool">
+            <img alt="Beehiiv" src="https://api.iconify.design/mdi:email-newsletter.svg?color=white"/>
+            <div class="meta">
+              <strong>Beehiiv</strong>
+              <p class="muted">Newsletter platform with growth features built‑in.</p>
+              <div class="actions">
+                <a class="btn" href="https://your-beehiiv-aff-link.example" target="_blank" rel="nofollow">Launch newsletter</a>
+                <a class="pill" href="#list-marketing">Marketing tools</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section id="categories" class="grid cols-3">
+      <div class="card">
+        <h3>Writing & SEO</h3>
+        <p>Blog posts, briefs, outlines, keywords.</p>
+        <a class="btn" href="#list-writing">Explore</a>
+      </div>
+      <div class="card">
+        <h3>Video & Audio</h3>
+        <p>Script‑to‑video, editing, subtitles, voice.</p>
+        <a class="btn" href="#list-video">Explore</a>
+      </div>
+      <div class="card">
+        <h3>Marketing & CRM</h3>
+        <p>Funnels, email automation, landing pages.</p>
+        <a class="btn" href="#list-marketing">Explore</a>
+      </div>
+    </section>
+
+    <!-- Top Tools -->
+    <section id="top" class="card" style="margin-top:20px">
+      <h2>Best AI Tools to Make Money Online (2025)</h2>
+      <div class="grid cols-3" style="margin-top:10px">
+        <div class="card">
+          <h3>Systeme.io</h3>
+          <p>All‑in‑one funnel + email + automation. Generous 60% recurring commissions for affiliates.</p>
+          <a class="btn" href="https://your-systeme-aff-link.example" target="_blank" rel="nofollow">Get Free Plan</a>
+        </div>
+        <div class="card">
+          <h3>Writesonic</h3>
+          <p>AI writing with SEO & factuality helpers. Strong templates and integrations.</p>
+          <a class="btn" href="https://your-writesonic-aff-link.example" target="_blank" rel="nofollow">Try Writesonic</a>
+        </div>
+        <div class="card">
+          <h3>Pictory</h3>
+          <p>Create short‑form & explainer videos from scripts or blog posts, auto‑captions included.</p>
+          <a class="btn" href="https://your-pictory-aff-link.example" target="_blank" rel="nofollow">Start Creating</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section id="newsletter" class="card" style="margin-top:20px">
+      <h2>Get Weekly AI Tool Picks</h2>
+      <p>One email per week. New launches, discounts, and proven tools that convert. Unsubscribe anytime.</p>
+      <form class="inline" action="mailto:you@example.com" method="post">
+        <input class="input" type="email" name="email" placeholder="your@email" required />
+        <button class="btn" type="submit">Subscribe</button>
+      </form>
+    </section>
+
+    <!-- Blog / Articles -->
+    <section id="blog" style="margin-top:20px" class="grid cols-2">
+      <article id="post-best-ai-tools" class="card post">
+        <h2>Best AI Tools for Small Business (2025)</h2>
+        <div class="toc">
+          <a href="#post-best-ai-tools-intro">Intro</a>
+          <a href="#post-best-ai-tools-stack">Starter Stack</a>
+          <a href="#post-best-ai-tools-faq">FAQ</a>
+        </div>
+        <h3 id="post-best-ai-tools-intro">Intro</h3>
+        <p>Small teams win by automating repeatable work: lead capture, content, video edits, and newsletters. Below is a pragmatic stack tested for non‑coders.</p>
+        <h3 id="post-best-ai-tools-stack">Starter Stack (No‑Code)</h3>
+        <ul>
+          <li><strong>Systeme.io</strong> — funnels + email + automation <a href="https://your-systeme-aff-link.example" target="_blank" rel="nofollow">(free plan)</a></li>
+          <li><strong>Writesonic</strong> — content + briefs + outlines <a href="https://your-writesonic-aff-link.example" target="_blank" rel="nofollow">(start)</a></li>
+          <li><strong>Pictory</strong> — turn scripts/blogs into videos <a href="https://your-pictory-aff-link.example" target="_blank" rel="nofollow">(create)</a></li>
+          <li><strong>Beehiiv</strong> — newsletter + growth tools <a href="https://your-beehiiv-aff-link.example" target="_blank" rel="nofollow">(launch)</a></li>
+        </ul>
+        <h3 id="post-best-ai-tools-faq">FAQ</h3>
+        <p><em>How do I earn?</em> Recommend tools with affiliate links. Focus on tutorials and comparisons that solve specific problems. Capture emails to build recurring traffic.</p>
+      </article>
+
+      <article id="post-make-money-ai" class="card post">
+        <h2>10 Practical Ways to Make Money with AI Tools</h2>
+        <ol>
+          <li>Offer AI‑powered blog packages to local businesses using Writesonic.</li>
+          <li>Produce faceless YouTube videos with Pictory & stock b‑roll.</li>
+          <li>Launch a newsletter on Beehiiv and sell sponsorships.</li>
+          <li>Build simple funnels in Systeme.io for service providers.</li>
+          <li>Sell Notion templates (SOPs, prompting systems) and bundle tutorials.</li>
+          <li>Rank comparison posts (SEO) and monetize via affiliates.</li>
+          <li>Create micro‑courses about “AI for [niche]”.</li>
+          <li>Automate lead magnets (checklists, calculators) to grow an email list.</li>
+          <li>Curate weekly deals & lifetime offers (evergreen search traffic).</li>
+          <li>Repurpose webinars into short clips with captions and CTAs.</li>
+        </ol>
+      </article>
+
+      <article id="review-systeme" class="card post">
+        <h2 id="review-systeme">Systeme.io Review (2025): The Easiest All‑in‑One to Start Earning</h2>
+        <p><strong>Verdict:</strong> Best value for beginners who want funnels + email + automation without juggling 5 tools. Free plan is enough to launch.</p>
+        <h3>Pros</h3>
+        <ul>
+          <li>All‑in‑one: pages, automation, email, checkout, courses</li>
+          <li>Fast setup, clean UI, free plan</li>
+          <li>Great affiliate program (recurring commissions)</li>
+        </ul>
+        <h3>Cons</h3>
+        <ul>
+          <li>Template library smaller than some competitors</li>
+          <li>Advanced CRM features limited</li>
+        </ul>
+        <h3>Getting Started</h3>
+        <p><a class="btn" href="https://your-systeme-aff-link.example" target="_blank" rel="nofollow">Create your free account</a></p>
+      </article>
+    </section>
+
+    <!-- Disclosure -->
+    <section id="disclosure" class="card" style="margin-top:20px">
+      <h2>Affiliate Disclosure</h2>
+      <p class="disclosure">We sometimes earn a commission when you click our links and purchase products. This helps keep FutureToolsHub free and reader‑supported. We only recommend tools we’d use ourselves. <strong>No sponsored rankings.</strong></p>
+    </section>
+
+    <section class="footer">
+      <div class="grid cols-3">
+        <div>
+          <div class="logo"><span class="dot"></span><span>FutureToolsHub</span></div>
+          <p style="margin-top:8px">Curated AI tools & simple playbooks to build recurring online income.</p>
+        </div>
+        <div>
+          <h3>Categories</h3>
+          <p><a href="#list-writing">Writing & SEO</a><br/>
+          <a href="#list-video">Video & Audio</a><br/>
+          <a href="#list-marketing">Marketing & CRM</a></p>
+        </div>
+        <div>
+          <h3>Newsletter</h3>
+          <form class="inline" action="mailto:you@example.com" method="post">
+            <input class="input" type="email" name="email" placeholder="your@email" required />
+            <button class="btn" type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+      <p style="margin-top:16px;font-size:12px">© 2025 FutureToolsHub. All rights reserved.</p>
+    </section>
+  </main>
+</body>
+</html>
