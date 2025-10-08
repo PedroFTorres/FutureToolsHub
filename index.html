@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FutureToolsHub — Best AI Tools Reviews & Picks (2025)</title>
+  <meta name="description" content="Clean, honest reviews of AI tools for creators and small businesses. Discover automation, writing, and video tools that actually help you grow." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo"><span class="dot"></span><a href="/">FutureToolsHub</a></div>
+        <div class="nav-actions">
+          <a class="btn ghost sm" href="/#latest">Latest</a>
+          <a class="btn ghost sm" href="/#categories">Categories</a>
+          <a class="btn ghost sm" href="/#newsletter">Newsletter</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Find AI Tools that <span class="badge">actually help</span> your business</h1>
+        <p>We test and curate AI products for writing, video, and marketing — without the hype. Clear pros & cons, pricing, and quick-start picks.</p>
+        <div class="nav-actions" style="margin-top:10px">
+          <a class="btn" href="#latest">Explore Reviews</a>
+          <a class="btn ghost" href="#newsletter">Get Weekly Picks</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="section-title">Quick Start Stack</h3>
+        <div class="grid cols-2" style="margin-top:10px">
+          <div class="card">
+            <strong>Systeme.io</strong>
+            <p class="muted">Funnels & email automation.</p>
+            <div class="nav-actions">
+              <a class="btn sm" href="/reviews/systeme-io.html">Read review</a>
+              <a class="btn ghost sm" href="https://your-systeme-aff-link.example" target="_blank" rel="nofollow">Get Free</a>
+            </div>
+          </div>
+          <div class="card">
+            <strong>Writesonic</strong>
+            <p class="muted">AI writing for blogs & SEO.</p>
+            <div class="nav-actions">
+              <a class="btn sm" href="/reviews/writesonic.html">Read review</a>
+              <a class="btn ghost sm" href="https://your-writesonic-aff-link.example" target="_blank" rel="nofollow">Start</a>
+            </div>
+          </div>
+          <div class="card">
+            <strong>Pictory</strong>
+            <p class="muted">Turn scripts into videos.</p>
+            <div class="nav-actions">
+              <a class="btn sm" href="/reviews/pictory.html">Read review</a>
+              <a class="btn ghost sm" href="https://your-pictory-aff-link.example" target="_blank" rel="nofollow">Try</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="latest" style="margin-top:8px">
+      <h2 class="section-title">Latest Reviews</h2>
+      <p class="muted" style="margin-top:-6px">Fresh picks from our editorial team.</p>
+      <div id="reviews-list" class="grid cols-3" style="margin-top:12px"></div>
+    </section>
+
+    <section id="categories" style="margin-top:24px">
+      <h2 class="section-title">Categories</h2>
+      <div class="grid cols-3">
+        <div class="card"><strong>Writing & SEO</strong><p class="muted">Blogs, briefs, and keyword tools.</p></div>
+        <div class="card"><strong>Video & Audio</strong><p class="muted">Script-to-video, captions, voice.</p></div>
+        <div class="card"><strong>Marketing & CRM</strong><p class="muted">Funnels, email, checkout.</p></div>
+      </div>
+    </section>
+
+    <section id="newsletter" class="card" style="margin-top:24px">
+      <h2 class="section-title">Get Weekly AI Tool Picks</h2>
+      <p class="muted">One email per week. No spam — only curated launches, discounts, and proven tools.</p>
+      <form action="https://formspree.io/f/xqaydpol" method="POST" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+        <input class="input" type="email" name="email" placeholder="you@email" required />
+        <button class="btn" type="submit">Subscribe</button>
+      </form>
+    </section>
+
+    <section id="disclosure" class="card" style="margin-top:24px">
+      <h2 class="section-title">Affiliate Disclosure</h2>
+      <p class="muted">We may earn a commission when you purchase through our links. We only recommend tools we trust and use.</p>
+    </section>
+  </main>
+
+  <footer class="container" style="margin-top:30px;padding:18px 0;text-align:center">
+    © 2025 FutureToolsHub.net
+  </footer>
+
+  <script>
+  // Load reviews.json and render cards
+  async function loadReviews(){
+    try{
+      const res = await fetch('/data/reviews.json', {cache:'no-cache'});
+      const items = await res.json();
+      const list = document.getElementById('reviews-list');
+      list.innerHTML = '';
+      // Show latest 6 (or fewer)
+      items.slice(0,6).forEach(it => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <h3 style="margin:0 0 6px">${it.title}</h3>
+          <p class="muted" style="margin:0 0 12px">${it.summary}</p>
+          <div class="nav-actions">
+            <a class="btn sm" href="${it.url}">Read review</a>
+          </div>`;
+        list.appendChild(card);
+      });
+    }catch(e){
+      console.error('Failed to load reviews.json', e);
+      const list = document.getElementById('reviews-list');
+      list.innerHTML = '<p class="muted">Could not load reviews. Please refresh.</p>';
+    }
+  }
+  loadReviews();
+  </script>
+</body>
+</html>
