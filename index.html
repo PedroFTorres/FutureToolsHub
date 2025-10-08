@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FutureToolsHub — AI Tools Reviews & Categories</title>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo"><span class="dot"></span><a href="/">FutureToolsHub</a></div>
+        <div class="nav-actions">
+          <a class="btn ghost" href="/#latest">Latest</a>
+          <a class="btn ghost" href="/categories.html">Categories</a>
+          <a class="btn ghost" href="/#newsletter">Newsletter</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Discover <span style="color:var(--brand)">AI Tools</span> that Work</h1>
+      <p>Honest, human-written reviews for creators, marketers, and teams.</p>
+      <a class="btn" href="/reviews/systeme-io.html">⭐ Top Pick: Systeme.io</a>
+    </section>
+
+    <section id="filter" class="card" style="margin-top:20px">
+      <h2 class="section-title">Filter Reviews</h2>
+      <div class="filter-bar" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+        <input id="search-input" class="input" placeholder="Search reviews…" />
+        <select id="category-select" class="input" style="min-width:220px">
+          <option value="">All categories</option>
+        </select>
+        <a class="btn ghost" href="/categories.html">Browse all</a>
+      </div>
+    </section>
+
+    <section id="latest" style="margin-top:8px">
+      <h2 class="section-title">Latest Reviews</h2>
+      <div id="reviews-list" class="grid cols-3" style="margin-top:12px"></div>
+    </section>
+  </main>
+
+  <footer class="container">© 2025 FutureToolsHub.net</footer>
+
+  <script>
+  let ALL = [];
+  function uniqueCategories(items){
+    const set = new Set();
+    items.forEach(it=>{
+      const cats = Array.isArray(it.categories)?it.categories:[it.category];
+      cats.forEach(c=>c&&set.add(c));
+    });
+    return Array.from(set).sort();
+  }
+  function matches(it,cat,q){
+    const text=((it.title||'')+' '+(it.summary||'')).toLowerCase();
+    const cats=Array.isArray(it.categories)?it.categories:[it.category];
+    return (!cat||cats.includes(cat)) && (!q||text.includes(q));
+  }
+  function render(cat='',q=''){
+    const list=document.getElementById('reviews-list');
+    list.innerHTML='';
+    const filtered=ALL.filter(it=>matches(it,cat,q));
+    if(!filtered.length){list.innerHTML='<p class="muted">No reviews found.</p>';return;}
+    filtered.forEach(it=>{
+      const card=document.createElement('div');
+      card.className='card';
+      card.innerHTML=`<h3>${it.title}</h3><p class='muted'>${it.summary}</p><a class='btn sm' href='${it.url}'>Read review</a>`;
+      list.appendChild(card);
+    });
+  }
+  async function init(){
+    const res=await fetch('/data/reviews.json',{cache:'no-cache'});
+    ALL=await res.json();
+    const select=document.getElementById('category-select');
+    uniqueCategories(ALL).forEach(c=>{
+      const o=document.createElement('option');o.value=c;o.textContent=c;select.appendChild(o);
+    });
+    const search=document.getElementById('search-input');
+    const apply=()=>render(select.value,(search.value||'').toLowerCase());
+    select.addEventListener('change',apply);
+    search.addEventListener('input',()=>{clearTimeout(search._t);search._t=setTimeout(apply,200);});
+    render();
+  }
+  init();
+  </script>
+</body>
+</html>
