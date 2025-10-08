@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Categories — FutureToolsHub</title>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <header><div class="container"><nav><div class="logo"><span class="dot"></span><a href="/">FutureToolsHub</a></div></nav></div></header>
+  <main class="container">
+    <section class="card">
+      <h1 class="section-title">All Categories</h1>
+      <p class="muted">Click a category to view related reviews.</p>
+      <div id="cat-grid" class="grid cols-3"></div>
+    </section>
+    <section id="cat-results" style="margin-top:20px">
+      <h2 id="cat-title" class="section-title" style="display:none"></h2>
+      <div id="cat-list" class="grid cols-3"></div>
+    </section>
+  </main>
+  <footer class="container">© 2025 FutureToolsHub.net</footer>
+  <script>
+  let ALL=[];
+  function uniqueCategories(items){
+    const map=new Map();
+    items.forEach(it=>{
+      const cats=Array.isArray(it.categories)?it.categories:[it.category];
+      cats.forEach(c=>{if(!c)return;map.set(c,(map.get(c)||0)+1)});
+    });
+    return Array.from(map.entries()).sort((a,b)=>a[0].localeCompare(b[0]));
+  }
+  function renderCats(){
+    const g=document.getElementById('cat-grid');
+    g.innerHTML='';
+    uniqueCategories(ALL).forEach(([n,c])=>{
+      const el=document.createElement('div');
+      el.className='card'; el.style.cursor='pointer';
+      el.innerHTML=`<strong>${n}</strong><p class='muted'>${c} review(s)</p>`;
+      el.onclick=()=>showCat(n);
+      g.appendChild(el);
+    });
+  }
+  function showCat(n){
+    document.getElementById('cat-title').textContent=n;
+    document.getElementById('cat-title').style.display='block';
+    const list=document.getElementById('cat-list');list.innerHTML='';
+    ALL.filter(it=>{
+      const cats=Array.isArray(it.categories)?it.categories:[it.category];
+      return cats.includes(n);
+    }).forEach(it=>{
+      const el=document.createElement('div');el.className='card';
+      el.innerHTML=`<h3>${it.title}</h3><p class='muted'>${it.summary}</p><a class='btn sm' href='${it.url}'>Read review</a>`;
+      list.appendChild(el);
+    });
+  }
+  async function init(){
+    const res=await fetch('/data/reviews.json',{cache:'no-cache'});
+    ALL=await res.json();renderCats();
+    const hash=new URLSearchParams(location.hash.replace('#',''));
+    const c=hash.get('c');if(c)showCat(c);
+  }
+  init();
+  </script>
+</body>
+</html>
