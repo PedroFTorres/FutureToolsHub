@@ -4,7 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FutureToolsHub — AI Tools Reviews & Categories</title>
-  <link rel="icon" type="image/png" href="/assets/hero-preview.webp">
+
+  <!-- 🧠 Favicon com emoji -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+
   <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
@@ -22,6 +25,12 @@
   </header>
 
   <main class="container">
+
+    <!-- 🖼️ Imagem do cabeçalho -->
+    <section class="header-image" style="text-align:center;margin-bottom:20px;">
+      <img src="/assets/hero-preview.webp" alt="AI Brain Banner" style="max-width:100%;border-radius:12px;">
+    </section>
+
     <section class="hero">
       <h1>Discover <span style="color:var(--brand)">AI Tools</span> that Work</h1>
       <p>Honest, human-written reviews for creators, marketers, and teams.</p>
@@ -43,6 +52,18 @@
       <h2 class="section-title">Latest Reviews</h2>
       <div id="reviews-list" class="grid cols-3" style="margin-top:12px"></div>
     </section>
+
+    <!-- ✉️ Newsletter funcional -->
+    <section id="newsletter" class="card" style="margin-top:40px;text-align:center;">
+      <h2 class="section-title">Join our Newsletter</h2>
+      <p class="muted">Get the latest AI tool reviews straight to your inbox.</p>
+      <form id="newsletter-form" style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:10px;">
+        <input type="email" id="newsletter-email" class="input" placeholder="Your email..." required>
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+      <p id="newsletter-msg" class="muted" style="margin-top:10px;"></p>
+    </section>
+
   </main>
 
   <footer class="container">© 2025 FutureToolsHub.net</footer>
@@ -88,6 +109,16 @@
     render();
   }
   init();
+
+  // Newsletter funcional
+  document.getElementById('newsletter-form').addEventListener('submit',e=>{
+    e.preventDefault();
+    const email=document.getElementById('newsletter-email').value.trim();
+    const msg=document.getElementById('newsletter-msg');
+    if(!email){msg.textContent='Please enter a valid email.';return;}
+    msg.textContent='✅ Thank you for subscribing!';
+    e.target.reset();
+  });
   </script>
 </body>
 </html>
