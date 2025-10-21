@@ -1,4 +1,10 @@
+# robots.txt for FutureToolsHub.net
 User-agent: *
 Allow: /
 
+# Block irrelevant system folders
+Disallow: /assets/
+Disallow: /data/
+
+# Sitemap reference
 Sitemap: https://futuretoolshub.net/sitemap.xml
